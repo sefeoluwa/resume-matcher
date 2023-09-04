@@ -8,19 +8,31 @@ const QUERY = gql`
 ResumeMatchers {
   resumeMatchers {
     blogPosts
-    createdAt
     datePublished
     id
-    publishedAt
+    slug
     title
     updatedAt
     content{
       html
     }
+    author{
+      name,
+      avatar{
+        url
+      }
+    }
+    coverPhoto{
+      publishedAt{
+        createdBy{
+          id
+        }
+        url 
+      }
+    }
   }
 }
-
-`
+`;
 
 export default function Home() {
   return (
